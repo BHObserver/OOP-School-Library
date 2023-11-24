@@ -21,3 +21,26 @@ class Student
     @classroom = nil
   end
 end
+
+class Book
+  attr_accessor :title, :author
+
+  def initialize(title, author)
+    @title = title
+    @author = author
+  end
+end
+
+class Rental
+  attr_accessor :date
+  attr_reader :person, :book
+
+  def initialize(date, person, book)
+    @date = date
+    @person = person
+    @book = book
+
+    person.add_rental(self)
+    book.add_rental(self)
+  end
+end
