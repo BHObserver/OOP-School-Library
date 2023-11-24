@@ -33,7 +33,7 @@ puts "Classroom for Student: #{student.classroom&.label}"
 
 puts "\nBook: #{book.title} by #{book.author}"
 puts "Person: #{person.name}"
-puts "Rentals for Person: #{person.rentals.map { |rental| "#{rental.book.title} on #{rental.date}" }}"
+puts "Rentals for Person: #{person.rental.map { |rental| "#{rental.book.title} on #{rental.date}" }}"
 
 puts "Book: #{book.title} by #{book.author}"
 puts "Rentals for Book: #{book.rentals.map { |rental| "#{rental.person.name} on #{rental.date}" }}"
