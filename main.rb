@@ -10,7 +10,7 @@ require_relative 'person'
 # Create instances
 classroom = Classroom.new('Math Class')
 student = Student.new('John Doe')
-book = Book.new('Ruby Basics', 'John Smith')
+Book.new('Ruby Basics', 'John Smith')
 person = Person.new('Alice')
 
 # Add student to classroom
@@ -21,7 +21,7 @@ student.classroom = classroom
 
 # Create a rental
 book = Book.new('Ruby Basics', 'John Smith')
-rental = Rental.new('2023-11-24', person, book)
+Rental.new('2023-11-24', person, book)
 
 
 # Output information
