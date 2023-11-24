@@ -1,13 +1,39 @@
 # main.rb
+
+# Require your class files
+require_relative 'classroom'
+require_relative 'student'
+require_relative 'book'
+require_relative 'rental'
 require_relative 'person'
-require_relative 'capitalize_decorator'
-require_relative 'trimmer_decorator'
 
-person = Person.new(22, name: 'maximilianus')
-puts person.correct_name
+# Create instances
+classroom = Classroom.new('Math Class')
+student = Student.new('John Doe')
+book = Book.new('Ruby Basics', 'John Smith')
+person = Person.new('Alice')
 
-capitalized_person = CapitalizeDecorator.new(person)
-puts capitalized_person.correct_name
+# Add student to classroom
+classroom.add_student(student)
 
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name
+# Set classroom for student
+student.classroom = classroom
+
+# Create a rental
+book = Book.new('Ruby Basics', 'John Smith')
+rental = Rental.new('2023-11-24', person, book)
+
+
+# Output information
+puts "Classroom: #{classroom.label}"
+puts "Students in Classroom: #{classroom.students.map(&:name)}"
+
+puts "\nStudent: #{student.name}"
+puts "Classroom for Student: #{student.classroom&.label}"
+
+puts "\nBook: #{book.title} by #{book.author}"
+puts "Person: #{person.name}"
+puts "Rentals for Person: #{person.rentals.map { |rental| "#{rental.book.title} on #{rental.date}" }}"
+
+puts "Book: #{book.title} by #{book.author}"
+puts "Rentals for Book: #{book.rentals.map { |rental| "#{rental.person.name} on #{rental.date}" }}"
