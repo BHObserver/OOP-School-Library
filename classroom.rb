@@ -12,3 +12,12 @@ class Classroom
     student.classroom = self
   end
 end
+
+class Student
+  attr_accessor :name, :classroom
+
+  def initialize(name)
+    @name = name
+    @classroom = nil
+  end
+end
