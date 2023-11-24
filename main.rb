@@ -23,7 +23,6 @@ student.classroom = classroom
 book = Book.new('Ruby Basics', 'John Smith')
 Rental.new('2023-11-24', person, book)
 
-
 # Output information
 puts "Classroom: #{classroom.label}"
 puts "Students in Classroom: #{classroom.students.map(&:name)}"
