@@ -39,18 +39,48 @@ student2.belongs_to_classroom(classroom)
 puts "Person: #{person.name}"
 puts "Students for Person: #{person.students.map(&:name)}"
 puts "Classroom for Student1: #{student1.classroom&.label}"
-puts "Classroom for Student2: #{student2.classroom&.label}"
+puts "Classroom for Student2: #{student2.classroom&.label}" # app.rb
+require_relative 'classroom'
+require_relative 'student'
+require_relative 'book'
+require_relative 'rental'
+require_relative 'person'
+
+class App
+  def initialize
+    @people = []
+    @books = []
+    @rentals = []
+  end
+
+  def list_books
+    puts 'List of Books:'
+    @books.each { |book| puts "#{book.title} by #{book.author}" }
+  end
+
+  def list_people
+    puts 'List of People:'
+    @people.each { |person| puts "#{person.name} (ID: #{person.id})" }
+  end
+
+  def create_person(type)
+    puts "Enter name for the #{type}:"
+    name = gets.chomp
+    case type
+    when 'teacher'
+      puts 'Enter specialization:'
+      specialization = gets.chomp
+      @people << Teacher.new(@people.size + 1, specialization, name: name)
+    when 'student'
+      @people << Student.new(@people.size + 1, name)
+    else
+      puts 'Invalid person type.'
+    end
+  end
+end
+
+# Entry point
+app = App.new
+app.main
 
 # Output information
-puts "Classroom: #{classroom.label}"
-puts "Students in Classroom: #{classroom.students.map(&:name)}"
-
-puts "\nStudent: #{student.name}"
-puts "Classroom for Student: #{student.classroom&.label}"
-
-puts "\nBook: #{book.title} by #{book.author}"
-puts "Person: #{person.name}"
-puts "Rentals for Person: #{person.rentals.map { |rental| "#{rental.book.title} on #{rental.date}" }}"
-
-puts "Book: #{book.title} by #{book.author}"
-puts "Rentals for Book: #{book.rentals.map { |rental| "#{rental.person.name} on #{rental.date}" }}"
