@@ -22,4 +22,14 @@ class Person < Nameable
   def correct_name
     @name
   end
+
+  def add_rental(date, book)
+    Rental.new(date, book, self)
+  end
+
+  private
+
+  def of_age?
+    true if @age >= 18
+  end
 end
