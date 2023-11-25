@@ -123,4 +123,23 @@ class App
     puts '6. List all rentals for a given person id '
     puts '7. Exit'
   end
+
+  def menu_action(option)
+    case option
+    when 1
+      book_list
+    when 2
+      person_list
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      list_rentals
+    else
+      'Invalid option, try again'
+    end
+  end
 end
