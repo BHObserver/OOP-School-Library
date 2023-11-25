@@ -128,3 +128,8 @@ app = App.new
 app.main
 
 # Output information
+puts "Classroom: #{classroom.label}"
+puts "Students in Classroom: #{classroom.students.map(&:name)}"
+
+puts "\nStudent: #{student.name}"
+puts "Classroom for Student: #{student.classroom&.label}"
