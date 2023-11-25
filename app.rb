@@ -142,4 +142,14 @@ class App
       'Invalid option, try again'
     end
   end
+
+  def run
+    loop do
+      menu_list
+      option = gets.chomp.to_i
+      break if option == 7
+
+      menu_action(option)
+    end
+  end
 end
