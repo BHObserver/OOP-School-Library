@@ -103,6 +103,21 @@ class App
       return
     end
 
+    puts "Enter rental date (YYYY-MM-DD):"
+    rental_date = gets.chomp
+    @rentals << Rental.new(rental_date, person, book)
+  end
+
+  def list_rentals_for_person
+    puts "Enter person ID to list rentals:"
+    person_id = gets.chomp.to_i
+    person = @people.find { |p| p.id == person_id }
+    unless person
+      puts "Person not found."
+      return
+    end
+
+
 
 end
 
