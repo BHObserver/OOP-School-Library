@@ -39,7 +39,7 @@ student2.belongs_to_classroom(classroom)
 puts "Person: #{person.name}"
 puts "Students for Person: #{person.students.map(&:name)}"
 puts "Classroom for Student1: #{student1.classroom&.label}"
-puts "Classroom for Student2: #{student2.classroom&.label}"# app.rb
+puts "Classroom for Student2: #{student2.classroom&.label}" # app.rb
 require_relative 'classroom'
 require_relative 'student'
 require_relative 'book'
@@ -54,12 +54,12 @@ class App
   end
 
   def list_books
-    puts "List of Books:"
+    puts 'List of Books:'
     @books.each { |book| puts "#{book.title} by #{book.author}" }
   end
 
   def list_people
-    puts "List of People:"
+    puts 'List of People:'
     @people.each { |person| puts "#{person.name} (ID: #{person.id})" }
   end
 
@@ -68,62 +68,63 @@ class App
     name = gets.chomp
     case type
     when 'teacher'
-      puts "Enter specialization:"
+      puts 'Enter specialization:'
       specialization = gets.chomp
       @people << Teacher.new(@people.size + 1, specialization, name: name)
     when 'student'
       @people << Student.new(@people.size + 1, name)
     else
-      puts "Invalid person type."
+      puts 'Invalid person type.'
     end
   end
 
   def create_book
-    puts "Enter title of the book:"
+    puts 'Enter title of the book:'
     title = gets.chomp
-    puts "Enter author of the book:"
+    puts 'Enter author of the book:'
     author = gets.chomp
     @books << Book.new(title, author)
   end
 
   def create_rental
-    puts "Enter person ID for the rental:"
+    puts 'Enter person ID for the rental:'
     person_id = gets.chomp.to_i
     person = @people.find { |p| p.id == person_id }
     unless person
-      puts "Person not found."
+      puts 'Person not found.'
       return
     end
 
-    puts "Enter book title for the rental:"
+    puts 'Enter book title for the rental:'
     book_title = gets.chomp
     book = @books.find { |b| b.title == book_title }
     unless book
-      puts "Book not found."
+      puts 'Book not found.'
       return
     end
 
-    puts "Enter rental date (YYYY-MM-DD):"
+    puts 'Enter rental date (YYYY-MM-DD):'
     rental_date = gets.chomp
     @rentals << Rental.new(rental_date, person, book)
   end
 
   def list_rentals_for_person
-    puts "Enter person ID to list rentals:"
+    puts 'Enter person ID to list rentals:'
     person_id = gets.chomp.to_i
     person = @people.find { |p| p.id == person_id }
     unless person
-      puts "Person not found."
+      puts 'Person not found.'
       return
     end
 
-
-
+    puts "Rentals for #{person.name}:"
+    rentals = @rentals.select { |rental| rental.person == person }
+    rentals.each { |rental| puts "#{rental.book.title} on #{rental.date}" }
+  end
 end
 
 # Entry point
 app = App.new
 app.main
-
 
 # Output information
