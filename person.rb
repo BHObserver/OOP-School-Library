@@ -1,18 +1,17 @@
-class Person
-  attr_accessor :name
-  attr_reader :students, :rentals
+require './nameable'
+require './person'
 
-  def initialize(name)
+# the class of Person
+class Person < Nameable
+  attr_accessor :name, :age, :rentals
+  attr_reader :id
+
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
+    @id = Random.rand(1..1000)
     @name = name
-    @students = []
+    @age = age
+    @parent_permission = parent_permission
     @rentals = []
-  end
-
-  def add_student(student)
-    @students << student
-  end
-
-  def add_rental(rental)
-    @rentals << rental
   end
 end
