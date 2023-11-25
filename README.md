@@ -22,7 +22,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Morse code decode <a name="about-project"></a>
+# 📖 OOP School Library <a name="about-project"></a>
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -63,7 +63,7 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/BHObserver/Morse-Code-Decoder.git
+  git clone https://github.com/BHObserver/OOP-School-Library
 ```
 
 ### Usage
@@ -112,7 +112,7 @@ ruby app.rb
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/BHObserver/Morse-Code-Decoder/issues).
+Feel free to check the [issues page](https://github.com/BHObserver/OOP-School-Library/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
