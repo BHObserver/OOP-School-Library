@@ -48,4 +48,19 @@ class App
       'Invalid number, try again'
     end
   end
+
+  def create_student
+    print 'Name: '
+    name = gets.chomp
+    print 'Age: '
+    age = gets.chomp
+    print 'Class: '
+    classroom = gets.chomp
+    print 'Has parent permission? [Y/N]: '
+    permission = gets.chomp.downcase == 'y' || gets.chomp.downcase == ' '
+    student = Student.new(age, classroom, name: name, parent_permission: permission)
+    @people << student
+    puts 'Person created successfully'
+    puts ' '
+  end
 end
