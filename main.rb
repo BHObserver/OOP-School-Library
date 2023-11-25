@@ -41,7 +41,6 @@ puts "Students for Person: #{person.students.map(&:name)}"
 puts "Classroom for Student1: #{student1.classroom&.label}"
 puts "Classroom for Student2: #{student2.classroom&.label}"
 
-
 # Output information
 puts "Classroom: #{classroom.label}"
 puts "Students in Classroom: #{classroom.students.map(&:name)}"
