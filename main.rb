@@ -77,6 +77,14 @@ class App
       puts 'Invalid person type.'
     end
   end
+
+  def create_book
+    puts 'Enter title of the book:'
+    title = gets.chomp
+    puts 'Enter author of the book:'
+    author = gets.chomp
+    @books << Book.new(title, author)
+  end
 end
 
 # Entry point
