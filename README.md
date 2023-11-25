@@ -1,5 +1,5 @@
 <div align="center">  <br/>
-  <h1><b> Morse code decode
+  <h1><b> OOP School Library
 </b>
 </div>
 
@@ -39,7 +39,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Decode Morse code code.
+- OOP School Library
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
