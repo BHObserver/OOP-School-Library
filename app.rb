@@ -102,4 +102,14 @@ class App
     puts 'Rental Created Successfully'
     puts ' '
   end
+
+  def list_rentals
+    print 'ID of person: '
+    id = gets.chomp.to_i
+    puts 'Rentals:'
+    @rentals.each do |rental|
+      puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == id
+      puts ' '
+    end
+  end
 end
