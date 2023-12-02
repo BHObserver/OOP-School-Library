@@ -17,16 +17,12 @@ RSpec.describe Person do
 
     context 'when the person is not of age but has parent permission' do
       it 'returns true' do
-        person_age = 17
-        parent_permission = true
         expect(person.can_use_services?).to be(true)
       end
     end
 
     context 'when the person is of age and has no parent permission' do
       it 'returns false' do
-        person_age = 25
-        parent_permission = false
         expect(person.can_use_services?).to be(true)
       end
     end
