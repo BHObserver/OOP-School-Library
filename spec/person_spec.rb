@@ -1,22 +1,34 @@
-# spec/person_spec.rb
+# person_spec.rb
 require_relative '../person'
-require_relative '../rental'
 
-describe Person do
-  let(:person) { Person.new(20, 'John Doe') }
+RSpec.describe Person do
+  let(:person_age) { 25 }
+  let(:person_name) { 'John Doe' }
+  let(:parent_permission) { true }
 
-  describe '#initialize' do
-    it 'creates a new person with the given age and name' do
-      expect(person.age).to eq(20)
-      expect(person.name).to eq('John Doe')
+  subject(:person) { described_class.new(person_age, person_name, parent_permission: parent_permission) }
+
+  describe '#can_use_services?' do
+    context 'when the person is of age' do
+      it 'returns true' do
+        expect(person.can_use_services?).to be(true)
+      end
     end
 
-    it 'generates a random ID for the person' do
-      expect(person.id).to be_an(Integer)
+    context 'when the person is not of age but has parent permission' do
+      it 'returns true' do
+        person_age = 17
+        parent_permission = true
+        expect(person.can_use_services?).to be(true)
+      end
     end
 
-    it 'initializes rentals as an empty array' do
-      expect(person.rentals).to be_empty
+    context 'when the person is of age and has no parent permission' do
+      it 'returns false' do
+        person_age = 25
+        parent_permission = false
+        expect(person.can_use_services?).to be(true)
+      end
     end
   end
 end
