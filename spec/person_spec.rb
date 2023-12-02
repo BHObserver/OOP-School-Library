@@ -30,7 +30,6 @@ RSpec.describe Person do
 end
 
 # person_add_rental_spec.rb
-require_relative '../person'
 require_relative '../rental'
 require_relative '../book' # Make sure to require any necessary dependencies
 
@@ -58,7 +57,6 @@ RSpec.describe Person do
 end
 
 # person_correct_name_spec.rb
-require_relative '../person'
 
 RSpec.describe Person do
   let(:person_age) { 25 }
