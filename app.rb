@@ -5,7 +5,7 @@ require './book'
 require './rental'
 require 'date'
 
-# App class for interface actions
+# App class for interface actions only
 class App
   def initialize
     @books = []
