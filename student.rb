@@ -1,6 +1,6 @@
 require './person'
 
-# Student class a child of a Person class only
+# Student class a child of a Person class only file
 class Student < Person
   attr_reader :classroom
 
